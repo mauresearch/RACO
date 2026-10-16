@@ -2,7 +2,7 @@
 
 This repository contains the simulator, the scheduler, the baselines, the experiment scripts and the complete results of the paper
 
-> F. Rafiei, M. Ramezanpour, *RACO: Recovery-Aware Aging and Energy Co-Optimization for Lifetime-Guaranteed Task Scheduling in Fog Computing*, submitted to Future Generation Computer Systems, 2026.
+> F. Rafiei, M. Ramezanpour, *RACO: Recovery-Aware Aging and Energy Co-Optimization for Lifetime-Guaranteed Task Scheduling in Fog Computing*, manuscript under review, 2026.
 
 RACO is an online scheduler for fog computing that minimizes the energy consumption of the fog layer while guaranteeing that every fog node reaches a prescribed hardware lifetime. It combines a two-component NBTI aging model with permanent and recoverable degradation, the coupling between power, junction temperature, aging and adaptive voltage scaling, and the ambient temperature of every installation site, and it schedules the active/deep-sleep modes of the nodes and the dispatching of the demand with Lyapunov drift-plus-penalty optimization.
 
@@ -66,7 +66,7 @@ RACO/
 │   ├── alibaba/
 │   ├── azure_weather/
 │   └── alibaba_weather/
-├── paper_figures/              Figs. 1–10 of the paper and the script that draws Figs. 2–10
+├── paper_figures/              Figs. 1–12 of the paper and the scripts that draw Figs. 2–12
 └── data/                       input traces (not distributed, see below)
 ```
 
@@ -75,7 +75,7 @@ RACO/
 Python 3.9 or newer is required. No GPU is needed.
 
 ```bash
-git clone https://github.com/<user>/RACO.git
+git clone https://github.com/mauresearch/RACO.git
 cd RACO
 pip install -r requirements.txt
 ```
@@ -124,10 +124,11 @@ Safety-rule statistics of RACO versus the Lyapunov parameter V:
 python safety_statistics.py --workload-csv data/azure_functions_iot.csv --out results/azure
 ```
 
-Figures 2–10 of the paper from the results workbooks:
+Figures 2–12 of the paper (Figs. 2–5 and 8–12 from the results workbooks, Figs. 6–7 with one short re-simulation):
 
 ```bash
 python paper_figures/make_figures.py
+python paper_figures/make_extra_figures.py
 ```
 
 Main options of `run_all.py`:
@@ -193,14 +194,15 @@ All device, thermal, workload and algorithm parameters are defined in `raco/conf
 If you use this code or the results, please cite:
 
 ```bibtex
-@article{rafiei2026raco,
-  title   = {{RACO}: Recovery-Aware Aging and Energy Co-Optimization for Lifetime-Guaranteed Task Scheduling in Fog Computing},
-  author  = {Rafiei, Fatemeh and Ramezanpour, Mohammadreza},
-  journal = {Future Generation Computer Systems},
-  year    = {2026},
-  note    = {Submitted}
+@misc{rafiei2026raco,
+  title  = {{RACO}: Recovery-Aware Aging and Energy Co-Optimization for Lifetime-Guaranteed Task Scheduling in Fog Computing},
+  author = {Rafiei, Fatemeh and Ramezanpour, Mohammadreza},
+  year   = {2026},
+  note   = {Manuscript under review. Code and data: https://github.com/mauresearch/RACO}
 }
 ```
+
+The reference will be updated once the paper is published.
 
 ## Authors
 
